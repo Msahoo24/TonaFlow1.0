@@ -139,7 +139,8 @@ classdef ECG_Class
                 clear seg
             end
         
-            mSpks = uniquetol(spks,1/MergeTol);
+            % mSpks = uniquetol(spks,1/MergeTol);
+            mSpks = spks;
             mSpks = sort(mSpks);
             
             % Something weird is happening so just check to make sure everything is
@@ -160,17 +161,26 @@ classdef ECG_Class
             % reftab(:,2) = round(reftab(:,2), 5);
             win =  20; % Number of element window
             nspk = [];
+            nspk2 = [];
             for x = 1:size(mSpks,1)
-                % this = reftab(reftab(:,2) == mSpks(x),:);
-                this = reftab(isequaltol2(reftab(:,2),mSpks(x),1/Fs),:);
-                window = reftab(this(1) - (win/2) : this(1) + (win/2),:);
+                this = reftab(reftab(:,2) == mSpks(x),:);
+                % this = reftab(isequaltol2(reftab(:,2),mSpks(x),1/Fs),:);
+                % winix = this(end,1) - (win/2) : this(end,1) + (win/2);
+                winix = this(1) - (win/2) : this(1) + (win/2);
+        
+                window = reftab(winix(winix>0),:);
                 [m,i] = max(window(:,3));
                 nspk = [nspk; window(i,2)];
+                nspk2 = [nspk2; window(i,1)];
             end
-        
+                
             dum = zeros(1,ceil(sesLen*Fs)); 
-            dum(round(nspk*Fs)) = 1;
-            
+            % dum(round(nspk*Fs)) = 1;
+            dum(nspk2) = 1;
+            if length(dum) < length(hTim)
+                df = length(hTim) - length(dum);
+                dum = [dum zeros(1,df)];
+            end
             self.Beats = dum;
             %% Debug.
             % figure;
