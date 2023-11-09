@@ -24,6 +24,7 @@ classdef ECG_Class
         BeatsSpliced
         SpliceLocations
         
+        HasFiltered % Has there been filtering applied? 
         % How many elements have been edited for size congruence?
         SizeEdits = 0;
     end
@@ -45,21 +46,24 @@ classdef ECG_Class
     methods
         %% Class Construction
         function obj = ECG_Class(path2ecg)
-                        
-            % Read in the ECG
-            data = readmatrix(path2ecg);
-            % Cehck the data format
-            obj.CheckDataFormat(data); 
-            % Construct the class
-            obj.X_Raw = data(:,1);
-            obj.Y_Raw = (data(:,2) - mean(data(:,2))) / std(data(:,2));
-            obj.Fs = round(1/mean(diff(obj.X_Raw)));
-
-            % Set the filtered to the X_Raw, we do this because the
-            % ECG_Filtered is what the user sees, while ECG_Raw is what we
-            % act on when filtering or splicing data. 
-            obj.X_Filtered = obj.X_Raw;
-            obj.Y_Filtered = obj.Y_Raw;
+            if strcmp(class(path2ecg),'struct') % Ability to create a blank class instance 
+                
+            elseif strcmp(class(path2ecg,'String')) | strcmp(class(path2ecg,'char'))
+                % Read in the ECG
+                data = readmatrix(path2ecg);
+                % Cehck the data format
+                obj.CheckDataFormat(data); 
+                % Construct the class
+                obj.X_Raw = data(:,1);
+                obj.Y_Raw = (data(:,2) - mean(data(:,2))) / std(data(:,2));
+                obj.Fs = round(1/mean(diff(obj.X_Raw)));
+    
+                % Set the filtered to the X_Raw, we do this because the
+                % ECG_Filtered is what the user sees, while ECG_Raw is what we
+                % act on when filtering or splicing data. 
+                obj.X_Filtered = obj.X_Raw;
+                obj.Y_Filtered = obj.Y_Raw;
+            end
         end
 
 
