@@ -48,7 +48,7 @@ classdef ECG_Class
         function obj = ECG_Class(path2ecg)
             if strcmp(class(path2ecg),'struct') % Ability to create a blank class instance 
                 
-            elseif strcmp(class(path2ecg,'String')) | strcmp(class(path2ecg,'char'))
+            elseif strcmp(class(path2ecg),'String') | strcmp(class(path2ecg),'char')
                 % Read in the ECG
                 data = readmatrix(path2ecg);
                 % Cehck the data format
