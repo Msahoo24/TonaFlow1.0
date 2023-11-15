@@ -1,5 +1,5 @@
 classdef ECG_Class
-    %ECG_CLASS Summary of this class goes here
+    % ECG_CLASS Summary of this class goes here
     %   Detailed explanation goes here
     
     properties
