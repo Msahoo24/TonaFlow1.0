@@ -112,7 +112,7 @@ classdef ECG_Class
         end
 
 
-        function self = CalculateBeats(self,hTim,hMon,Fs, Threshwin)
+        function self = CalculateBeats(self,hTim,hMon,Fs, Threshwin, PRCT)
             sesLen=hTim(end)-hTim(1);
             %%segment into 1 second windows
             % lseg=1;
@@ -126,7 +126,7 @@ classdef ECG_Class
             spks=[];
             for g=1:size(Time,1)
                 seg=hMon(Time(g,:));
-                a=prctile(seg,97.5);
+                a=prctile(seg,PRCT);
                 spks=[spks; [Time(g,find(seg>a))/Fs]'];
                 clear seg
             end
