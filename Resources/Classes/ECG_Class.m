@@ -46,8 +46,20 @@ classdef ECG_Class
     methods
         %% Class Construction
         function obj = ECG_Class(path2ecg)
-            if strcmp(class(path2ecg),'struct') % Ability to create a blank class instance 
+            if strcmp(class(path2ecg),'struct') % Ability to create a blank class instance. This is essentially used to load projects from JSON format.
+                % Get the properties of the object and assign them to the
+                % struct's values
+                props = string(properties(obj));
+                fields = string(fieldnames(path2ecg));
+                % Check to see if all fields match up
                 
+                for i = 1:size(props,1)
+                    pr = props(i);
+                    ix = find(props(i) == fields);
+                    if ~isempty(ix)
+                        obj.(pr) = path2ecg.(pr);
+                    end
+                end
             elseif strcmp(class(path2ecg),'String') | strcmp(class(path2ecg),'char')
                 % Read in the ECG
                 data = readmatrix(path2ecg);
@@ -270,7 +282,7 @@ classdef ECG_Class
                 % Find nearest leftward beat
                 Lxx = find(self.Beats(1:SpliceLocations(i,1)) == 1);
                 leftBeat = Lxx(end);
-
+            
                 Rxx = find([zeros(1,SpliceLocations(i,2)) self.Beats(SpliceLocations(i,2):end)] == 1);
                 rightBeat = Rxx(1)-1;
 
@@ -286,6 +298,7 @@ classdef ECG_Class
         end
 
         %% Data Checks
+        % function RowColCheck
         function SizeCheck(self)
             % Sometimes, when performing operations like calculating heart
             % rate, rounding errors will ocurr. These rounding errors are
