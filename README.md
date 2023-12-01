@@ -166,7 +166,18 @@ In order to calculate heart rate, we need to detect where these beats are happen
 ![Imgur](https://i.imgur.com/GtMtMyH.png)
 
 This will bring up the beat detection window.
+![Imgur](https://imgur.com/QnYcnMY.png)
+This window is designed to allow users to preview their threshold as they adjust parameters. Adjust the `Preview Size` edit field to view a smaller or larger window of data, and use the bottom slider to traverse across the X-axis. 
 
+### Specifying a Threshold Window
+TonaFlow calculates heartbeats through use of a <strong> dynamic threshold</strong>. 
+This threshold is calculated every 1 second by default. If you find that your threshold is varying too much, then adjust this value. 
+
+### Absolute Value
+Sometimes, R peaks can manifest in different ways. Sometimes, they pertrude upwards while other times, they pertrude only downwards. You can select the `Use Absolute Value` checkbox to perform the detection on the ABS of the signal, that way downwards R peaks are not missed. 
+
+### Convolution Window Size
+To calculate heart rate, TonaFlow uses convolution. For more information about convolution, visit the [Under the Hood](#dev) section. 
 
 
 
