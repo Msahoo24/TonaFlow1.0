@@ -1,5 +1,35 @@
+
+<html>
+    <style>
+        .subtitle   {color: #64C7E9;
+                    margin-bottom:-10px},
+        .center {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+                }
+    </style>
+</html>
+
+
+
+
+
+
+
 <h1 style = "text-align:center">TonaFlow - A Free Program for ECG Processing</h1>
 
+<!-- // Tonaflow logo -->
+<p align='center'>
+    <img src='./Resources/devsys_logo.png' height=100> 
+</p>
+<p align='center'>
+    <img src=https://i.imgur.com/SftJL0e.png height=190> 
+</p>
+
+
+<!-- Start -->
 
 <h1 class = 'subtitle'> About </h1>
 
@@ -7,6 +37,15 @@ ____
 TonaFlow is a free and open-source program that aims to make standardized ECG processing free and easy for everyone. 
 
 TonaFlow is currently under heavy development, expect changes as time passes.
+
+
+<h1 class = 'subtitle'> Authors </h1>
+
+____
+- Manash Sahoo - University of Houston, TIMES
+- Jeremy I. Borjon = University of Houston, TIMES
+
+
 
 <h1 class = 'subtitle'> Table of Contents </h1>
 
@@ -31,12 +70,7 @@ ___
     - [Calculating Heart Rate using Convolution](#dev_conv)
     - [Removing Data when using Convolution](#dev_removal)
 
-<html>
-    <style>
-        .subtitle   {color: #64C7E9;
-                    margin-bottom:-10px}
-    </style>
-</html>
+
 
 
 <h1 name = 'install' class = "subtitle" > Installation </h1>
@@ -111,6 +145,52 @@ Sometimes, electrocardiograms include artifacts or oscillatory noise due to move
 While many tools use traditional butterworth filters to filter frequencies, TonaFlow uses the Continuous Wavelet Transform (CWT). You can read more about wavelets [here]() or the MATLAB `cwt` function [here]().
 
 After loading a signal, click `ECG` on the top toolbar, and then `Filter with CWT`.
+![Imgur](https://i.imgur.com/b1H5qcl.png)
+
+This will bring up the CWT Bandpass window. 
+![Imgur](https://i.imgur.com/PawfrvY.png)
+Adjust the upper and lower frequency values to effectively remove low and high oscillatory noise. In many ECG recordings, low oscillatory noise corresponds to variation in respiration, while high oscillatory noise corresponds to movement. In any case, these are unwanted portions of the signal. 
+
+The frequency bounds in the CWT Bandpass window automatically populate to the possible frequency bounds of the signal. Adjust these frequencies until the ECG is as free of noise as possible. In this case, passing frequencies under 1Hz significantly cleans the signal. 
+
+![Imgur](https://i.imgur.com/0LslqKx.png)
+
+Now, our signal is sufficiently proecessed to make beat detection easier and more efficient. 
+
+
+
+<h3 name = 'usage_heartbeats'>Finding Heart Beats and Calculating Heart Rate</h3>
+
+___
+In order to calculate heart rate, we need to detect where these beats are happening. To begin calculating heart rate and finding heart beats, go to `ECG` and click `Calculate Heart Rate`.
+![Imgur](https://i.imgur.com/GtMtMyH.png)
+
+This will bring up the beat detection window.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
