@@ -189,15 +189,64 @@ Likewise, to remove heartbeats, you can also click on any heartbeat to select it
 <h3 name = 'usage_dataremoval'>Removing Sections of Data</h3>
 
 ---
-In some situations, sections of data may be completely unusable; or they may be completely irrelevant. In TonaFlow, we have made this an easy process. 
+In some situations, sections of data may be completely unusable, or they may be completely irrelevant and thus should be excluded. In TonaFlow, we have made this an easy process. 
+
+
+For more information about how TonaFlow removes sections of data, visit the [Under the Hood Section](#dev).
+
+After calculating heart rate from your ECG signal, click the `Enter Removal Mode` button.
+
+![Imgur](https://i.imgur.com/AKwOGvU.png)
+
+
+This will enable "removal mode". This mode allows you highlight sections of data for removal. To highlight data while in "removal mode", click the `Select Data for Removal` button. Click and drag over the section of data you wish to remove. 
+
+![Imgur](https://i.imgur.com/yiEJJfe.png)
+
+Once you are satisfied with your selection, click the `Enter Removal Mode` button again to exit removal mode. Heart rate will automatically be re-calculated. 
+
+![Imgur](https://i.imgur.com/um0COo6.png)
 
 
 
 
+<h3 name = 'usage_exportdata'>Exporting Data</h3>
+
+---
+To export *all* data, click `File >> Save... >> All Contents`. 
+
+![](https://imgur.com/Q2xLmVB.png)
+
+This will save the heart rate, heart beat locations, and respiratory rate (if calculated) as a `.csv`. For example, an exported session may look something like this:
+
+<center>
+
+| $t$ | $Heart Rate$ | $ Heart Beats $ | $ Respiratory Rate$ |
+| --- | ------ | ------ | ------ |
+| 0.1 | $1100$ | $0$ | $30$
+| 0.2 | $1200$ | $0$ | $30$
+| 0.3 | $1300$ | $1$ | $31$
+| 0.4 | $800$  | $0$ | $34$
+| ... | $...$  | $...$ | $...$
+
+</center>
+
+
+You can use `File >> Save... ` and the other options to save data piece-wise. 
 
 
 
+<h3 name = 'usage_saveload'> Saving a Project </h3>
 
+___
+
+ECG signals can be long, and consequently may take a bit of time to review. You may also want to save the processing as a reference for future use. 
+
+TonaFlow allows you to save pre-processing sessions as a `.Flow` file. 
+
+To save a project, click `File >> Save Project File`. Conversely, to load a project, click `File >> Load Project File`. 
+
+For more information about the structure of `.Flow` files, take a look at the [Flow File Structure](#dev_flowfile) portion of [Under the Hood](#dev).
 
 
 
@@ -216,7 +265,11 @@ In some situations, sections of data may be completely unusable; or they may be 
 
 ---
 
+
+
 <h3 name = 'dev_filt'> Filtering with the CWT </h3>
+
+___
 
 First, the CWT of the ECG signal $x$ is calculated
 
