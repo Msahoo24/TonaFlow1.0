@@ -90,7 +90,7 @@ To maximize access, TonaFlow only accepts data from a `.csv` or `.xlsx`. These a
 
 The contents of your file should follow the following format, with the first column being time, and the second column being measurement:
 
-<center>
+<div align=center>
 
 | $t$ | $ECG$  |
 | --- | ------ |
@@ -100,7 +100,7 @@ The contents of your file should follow the following format, with the first col
 | 0.4 | $800$  |
 | ... | $...$  |
 
-</center>
+</div>
 
 There should be no duplicate values in column $t$, and both columns should be of the same length.
 
