@@ -172,6 +172,40 @@ By default, TonaFlow constructs a 10-second gaussian kernel of the form (For mor
 
 $$ w(n) = e^{-\frac{1}{2}(\sigma \frac{n}{(L-1)/2})^2} $$
 
+
+
+<h3 name = 'usage_addremoval'>Adding and Removing Heartbeats</h3>
+
+---
+While dynamic thresholding can be a simple and powerful method for finding heartbeats, sometimes some heartbeats can be missed. If these R peaks can be identified by eye, then it is useful to add them back in. 
+
+![](https://i.imgur.com/lA0vEgr.png)
+
+Click anywhere on the signal to add a point. A small datatip will appear. Then, click the `Add Heartbeat(s)` button.
+
+Likewise, to remove heartbeats, you can also click on any heartbeat to select it, and click the `Remove Heartbeat(s)` button.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1 name = 'dev' class = 'subtitle' > Under the Hood </h1>
 
 ---
