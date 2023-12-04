@@ -186,6 +186,12 @@ Click anywhere on the signal to add a point. A small datatip will appear. Then, 
 Likewise, to remove heartbeats, you can also click on any heartbeat to select it, and click the `Remove Heartbeat(s)` button.
 
 
+<h3 name = 'usage_dataremoval'>Removing Sections of Data</h3>
+
+---
+In some situations, sections of data may be completely unusable; or they may be completely irrelevant. In TonaFlow, we have made this an easy process. 
+
+
 
 
 
