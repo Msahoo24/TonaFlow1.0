@@ -221,9 +221,9 @@ To export *all* data, click `File >> Save... >> All Contents`.
 
 This will save the heart rate, heart beat locations, and respiratory rate (if calculated) as a `.csv`. For example, an exported session may look something like this:
 
-<center>
+<div align = center>
 
-| $t$ | $Heart Rate$ | $ Heart Beats $ | $ Respiratory Rate$ |
+| $t$ | $Heart Rate$ | $Heart Beats$ | $Respiratory Rate$ |
 | --- | ------ | ------ | ------ |
 | 0.1 | $1100$ | $0$ | $30$
 | 0.2 | $1200$ | $0$ | $30$
@@ -231,7 +231,7 @@ This will save the heart rate, heart beat locations, and respiratory rate (if ca
 | 0.4 | $800$  | $0$ | $34$
 | ... | $...$  | $...$ | $...$
 
-</center>
+</div>
 
 
 You can use `File >> Save... ` and the other options to save data piece-wise. 
