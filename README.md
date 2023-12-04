@@ -272,13 +272,13 @@ For more information about the structure of `.Flow` files, take a look at the [F
 <h3 name = 'dev_filt'> Filtering with the CWT </h3>
 
 ___
-
+<!-- 
 First, the CWT of the ECG signal $x$ is calculated
 
 $$ W*f(a, b) = \int*{-\infty}^{\infty} f(x) \cdot \psi\_{a,b}(x) \, dx $$
 
 where $\psi_{a,b}$ is the wavelet $\psi$ at translation $a$ and scale $b$. TonaFlow uses the `bump` wavelet, which according to [MATLAB]() can be defined as:
-<!-- 
+
 $$
 \psi(x) =
 \begin{cases}
