@@ -288,16 +288,4 @@ e^{1 - \frac{1}{1 - (\frac{x - \mu}{\sigma})^2}} & \text{for } |x - \mu| < \sigm
 $$
 
 Then, the signal is reconstructed using the inverse-CWT within the specified frequency bounds
-$$ f(x) = \frac{1}{C*\psi} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{1}{a^2} W_f(a, b) \cdot \psi_{a,b}(x) \, da \, db $$
-
-
-<!-- $$ f(x) = \frac{1}{C*\psi} \int*{-\infty}^{\infty} \int*{-\infty}^{\infty} \frac{1}{a^2} W_f(a, b) \cdot \psi*{a,b}(x) \, da \, db $$ -->
-First, the CWT of the ECG signal x is calculated:
-
-W*f(a, b) = ∫_{-∞}^{∞} f(x) * ψ_{a,b}(x) dx
-
-where ψ_{a,b} is the wavelet ψ at translation a and scale b.
-
-Then, the signal is reconstructed using the inverse-CWT within the specified frequency bounds:
-
 $$ f(x) = 1 / (C * ψ) ∫_{-∞}^{∞} ∫_{-∞}^{∞} (1 / a^2) W_f(a, b) * ψ_{a,b}(x) da db $$
