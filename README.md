@@ -121,7 +121,7 @@ Because TonaFlow is built using the MATLAB GUI Designer, it utilizes the standar
 <h3 name = 'usage_dataformatting'> Using the arrow keys </h3> 
 Sessions can be very long, and take a while to parse through. While you can click and drag along the plot to move along the X axis, this can be tiresome. If you make sure that the axes is "focused" by first clicking on it, you can use the left and right arrow keys to move along the Y_Axis.
 
-Change the "Keypress Factor" edit field, to edit the amount of step for each keypress.
+Change the `Keypress Factor` edit field, to edit the amount of step for each keypress.
 
 <h3 name = 'usage_filtering'>Filtering</h3>
 
