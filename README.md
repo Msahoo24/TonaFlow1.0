@@ -278,14 +278,14 @@ First, the CWT of the ECG signal $x$ is calculated
 $$ W*f(a, b) = \int*{-\infty}^{\infty} f(x) \cdot \psi\_{a,b}(x) \, dx $$
 
 where $\psi_{a,b}$ is the wavelet $\psi$ at translation $a$ and scale $b$. TonaFlow uses the `bump` wavelet, which according to [MATLAB]() can be defined as:
-
+<!-- 
 $$
 \psi(x) =
 \begin{cases}
 e^{1 - \frac{1}{1 - (\frac{x - \mu}{\sigma})^2}} & \text{for } |x - \mu| < \sigma, \\
 0 & \text{otherwise.}
 \end{cases}
-$$
+$$ -->
 
 Then, the signal is reconstructed using the inverse-CWT within the specified frequency bounds
 $$ f(x) = 1 / (C * ψ) ∫_{-∞}^{∞} ∫_{-∞}^{∞} (1 / a^2) W_f(a, b) * ψ_{a,b}(x) da db $$
