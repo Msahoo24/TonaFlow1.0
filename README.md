@@ -207,6 +207,8 @@ Once you are satisfied with your selection, click the `Enter Removal Mode` butto
 
 ![Imgur](https://i.imgur.com/um0COo6.png)
 
+If you decide that you want to move or delete this selection, simply toggle `Enter Removal Mode` again to enter removal mode. Then, you can either move your selection or right-click the selection and click `Delete Rectangle`.
+![](https://imgur.com/wK0iog1.png)
 
 
 
