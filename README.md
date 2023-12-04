@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
     <style>
         .subtitle   {color: #64C7E9;
                     margin-bottom:-10px},
@@ -9,7 +9,7 @@
                     width: 50%;
                 }
     </style>
-</html>
+</html> -->
 
 <h1 style = "text-align:center">TonaFlow - A Free Program for ECG Processing</h1>
 
