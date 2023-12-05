@@ -11,7 +11,7 @@
     </style>
 </html> -->
 
-<h1 style = "text-align:center">TonaFlow - A Free Program for ECG Processing</h1>
+<h1 align='center'>TonaFlow - A Free Program for ECG Processing</h1>
 
 <!-- // Tonaflow logo -->
 <p align='center'>
@@ -56,6 +56,7 @@ TonaFlow is currently under heavy development, expect changes as time passes.
   - [Removing Sections of Data](#usage_dataremoval)
   - [Exporting Data](#usage_exportdata)
   - [Saving/Loading a Project](#usage_saveload)
+  - [Calculating Respiration Rate using the CWT](#usage_resprate)
 - [Under the Hood](#dev)
   - [Filtering with the CWT](#dev_filt)
   - [Finding Heartbeats using Dynamic Thresholding](#dev_threshholding)
@@ -253,9 +254,21 @@ For more information about the structure of `.Flow` files, take a look at the [F
 
 
 
+<h3 name = 'usage_resprate'> Calculating Respiration Rate </h3>
 
+___
+In some ECG signals, variation due to respiration manifests as low-frequency oscillations. Take for example the following signal:
+![](https://imgur.com/LpJjAJY.png)
 
+This signal has a clear low-frequency oscillation that could very well be the respiration signal. While TonaFlow also uses the Continuous Wavelet Transform to filter signals, TonaFlow also uses it to extract specific frequencies (i.e. the respiratory signal) from the ECG. For more information on this topic, visit the [Under the Hood](#dev) section.
 
+To start, navigate to the `ECG` submenu and select `Extract Respiratory Signal`.
+![](https://imgur.com/mTMUMXj.png)
+
+This will bring up the Respiratory Extraction window. 
+![](https://imgur.com/t9qIZbi.png)
+
+Adjust your upper and lower frequencies accordingly, until the signal resembles the low frequency oscillations in your data. In some ECG signals, these frequencies can manifest in the R-peaks, or the "baseline" of the ECG. Thus, you can use the Y adjust slider to move the signal up or down to determine goodness of fit.
 
 
 
@@ -269,25 +282,6 @@ For more information about the structure of `.Flow` files, take a look at the [F
 
 
 
-<h3 name = 'dev_filt'> Filtering with the CWT </h3>
+<h3 name = 'dev_filt'> CWT Filtering </h3>
 
 ___
-
-First, the CWT of the ECG signal $x$ is calculated
-
-$$ W*f(a, b) = \int*{-\infty}^{\infty} f(x) \cdot \psi\_{a,b}(x) \, dx $$
-
-where $\psi_{a,b}$ is the wavelet $\psi$ at translation $a$ and scale $b$. TonaFlow uses the `bump` wavelet, which according to [MATLAB]() can be defined as:
-
-$$
-\psi(x) =
-\begin{cases}
-e^{1 - \frac{1}{1 - (\frac{x - \mu}{\sigma})^2}} & \text{for } |x - \mu| < \sigma, \\
-0 & \text{otherwise.}
-\end{cases}
-$$
-
-
-Then, the signal is reconstructed using the inverse-CWT within the specified frequency bounds:
-
-$$ f(x) = 1 / (C * ψ) ∫_{-∞}^{∞} ∫_{-∞}^{∞} (1 / a^2) W_f(a, b) * ψ_{a,b}(x) da db $$
