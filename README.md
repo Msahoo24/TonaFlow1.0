@@ -31,16 +31,16 @@ TonaFlow is a free and open-source program that aims to make standardized ECG pr
 
 TonaFlow is currently under heavy development, expect changes as time passes.
 
-<h1 class = 'subtitle'> Authors </h1>
+<h1 class = 'subtitle'> Authors and Collaborators </h1>
 
 ---
 
 - Manash Sahoo - University of Houston, TIMES
-- Jeremy I. Borjon = University of Houston, TIMES
+- Jeremy I. Borjon - University of Houston, TIMES
 
 <h1 class = 'subtitle'> Table of Contents </h1>
 
----
+___
 
 - [Installation](#install)
   - [Mac](#install_mac)
