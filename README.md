@@ -89,7 +89,7 @@ If you have a MATLAB license, TonaFlow can be run directly in the environment.
 
 To maximize access, TonaFlow only accepts data from a `.csv` or `.xlsx`. These are ubiquitous file types used by the majority of systems.
 
-The contents of your file should follow the following format, with the first column being time, and the second column being measurement:
+The contents of your file should follow the following format, with the first column being time in seconds, and the second column being measurement:
 
 <div align=center>
 
