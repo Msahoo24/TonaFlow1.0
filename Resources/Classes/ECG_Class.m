@@ -68,7 +68,7 @@ classdef ECG_Class
         function self = CalculateHeartRate(self,dum, dt ,Fs,BlurWinLen) %, SmoothingFactor)
             % if nargin < 5
                 BlurWinLen = 10;
-                SmoothingFactor = .9; % For CSAPS
+                SmoothingFactor = .7    ; % For CSAPS
             % end
             
             % Determine if we are operating on a spliced signal or not
