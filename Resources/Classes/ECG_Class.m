@@ -245,10 +245,10 @@ classdef ECG_Class
             % Indicate that the ECG is now spliced
             if self.IsSpliced == 0
                 self.IsSpliced = 1;
-                self.X_Spliced = self.X_Filtered;
-                self.Y_Spliced = self.Y_Filtered; 
-                self.BeatsSpliced = self.Beats;
             end
+            self.X_Spliced = self.X_Filtered;
+            self.Y_Spliced = self.Y_Filtered; 
+            self.BeatsSpliced = self.Beats;
             
             try %Put these in a try-catch because some of them might have been deleted. If it loops over the deleted one it will throw an error. 
                 SpliceLocations = zeros(length(RemovalRects),2); % We just need the X locations. Left is start, right is stop.
